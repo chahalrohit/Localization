@@ -1,0 +1,14 @@
+com/localization/BuildConfig.java
+ com.localization.BuildConfig
+com/localization/ReactNativeFlipper.java
+ com.localization.ReactNativeFlipper
+ com.localization.ReactNativeFlipper$1
+ com.localization.ReactNativeFlipper$2
+ com.localization.ReactNativeFlipper$2$1
+com/localization/MainApplication.java
+ com.localization.MainApplication
+ com.localization.MainApplication$1
+com/localization/MainActivity.java
+ com.localization.MainActivity
+com/facebook/react/PackageList.java
+ com.facebook.react.PackageList
