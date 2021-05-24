@@ -23,86 +23,87 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      languageSelected: 'en',
-      passNotVisible:true,
-      setPassSecure:true,
+      lang: 'en',
+      passNotVisible: true,
+      setPassSecure: true,
     };
   }
+  // languageSelected is props 
   onChangeLanguage(languageSelected) {
     this.setState({
-      languageSelected,
+      lang: languageSelected
     });
     //this.props.setLanguageUser(value)
     I18n.locale = languageSelected;
     // _storeData(USER_LANGUAGE,value);
   }
+
   render() {
-    // const { languageSelected } = this.state;
     return (
       <ImageBackground
         style={styles.backgroundImage}
         source={require('./images/long_road.png')}>
-      <View style={styles.container}>
-        <ScrollView keyboardShouldPersistTaps="always">
-          <View style={styles.container}>
+        <View style={styles.container}>
+          <ScrollView keyboardShouldPersistTaps="always">
+            <View style={styles.container}>
 
-            <DropdownLanguage
-              language={this.state.languageSelected}
-              onChangeLanguage={this.onChangeLanguage.bind(
-                this,
-              )}></DropdownLanguage>
+              <DropdownLanguage
+                language={this.state.lang}
+                onChangeLanguage={this.onChangeLanguage.bind(
+                  this,
+                )}></DropdownLanguage>
 
-            <Text style={styles.helloText}>{I18n.t('hello')} </Text>
-            <Text style={styles.text}>{I18n.t('sign_in_to_your_account')}</Text>
-            <View style={styles.emailContainer}>
-              <TextInput
-                style={styles.emailInput}
-                placeholder={I18n.t('email')}
-                placeholderTextColor="white"
-                autoCapitalize="none"
-              />
-              <Icon type="MaterialIcons" name="email" style={styles.userIcon} />
-            </View>
+              <Text style={styles.helloText}>{I18n.t('hello')} </Text>
+              <Text style={styles.text}>{I18n.t('sign_in_to_your_account')}</Text>
+              <View style={styles.emailContainer}>
+                <TextInput
+                  style={styles.emailInput}
+                  placeholder={I18n.t('email')}
+                  placeholderTextColor="white"
+                  autoCapitalize="none"
+                />
+                <Icon type="MaterialIcons" name="email" style={styles.userIcon} />
+              </View>
 
-            <View style={styles.passContainer}>
-              <TextInput
-                style={styles.passInput}
-                placeholder={I18n.t('password')}
-                secureTextEntry={this.state.setPassSecure}
-                placeholderTextColor="white"
-              />
-              <TouchableOpacity
-              onPress={() => (
-                this.setState({passNotVisible:!this.state.passNotVisible}),
-                 this.setState({setPassSecure:!this.state.setPassSecure})
-              )}
-              >
-                <Icon style={styles.passIcon} 
-                    name={this.state.passNotVisible ? 'eye' :'eye-with-line'}
-                type="Entypo" />
+              <View style={styles.passContainer}>
+                <TextInput
+                  style={styles.passInput}
+                  placeholder={I18n.t('password')}
+                  secureTextEntry={this.state.setPassSecure}
+                  placeholderTextColor="white"
+                />
+                <TouchableOpacity
+                  onPress={() => (
+                    this.setState({ passNotVisible: !this.state.passNotVisible }),
+                    this.setState({ setPassSecure: !this.state.setPassSecure })
+                  )}
+                >
+                  <Icon style={styles.passIcon}
+                    name={this.state.passNotVisible ? 'eye' : 'eye-with-line'}
+                    type="Entypo" />
+                </TouchableOpacity>
+              </View>
+              <TouchableOpacity>
+                <Text style={styles.forgot}>
+                  {I18n.t('forgot_your_password')}
+                </Text>
               </TouchableOpacity>
-            </View>
-            <TouchableOpacity>
-              <Text style={styles.forgot}>
-                {I18n.t('forgot_your_password')}
-              </Text>
-            </TouchableOpacity>
 
-            <Button block style={styles.signinButton}>
-              <Text style={styles.signinText}>{I18n.t('sign_in')}</Text>
-            </Button>
+              <Button block style={styles.signinButton}>
+                <Text style={styles.signinText}>{I18n.t('sign_in')}</Text>
+              </Button>
 
-            <View style={styles.signUpClick}>
-              <Text style={styles.dontAccount}>
-                {I18n.t('dont_have_an_account')}
-              </Text>
-              <TouchableOpacity onPress={() => navigation.navigate('Sign Up')}>
-                <Text style={styles.signUp}>{I18n.t('sign_up')}</Text>
-              </TouchableOpacity>
+              <View style={styles.signUpClick}>
+                <Text style={styles.dontAccount}>
+                  {I18n.t('dont_have_an_account')}
+                </Text>
+                <TouchableOpacity onPress={() => navigation.navigate('Sign Up')}>
+                  <Text style={styles.signUp}>{I18n.t('sign_up')}</Text>
+                </TouchableOpacity>
+              </View>
             </View>
-          </View>
-        </ScrollView>
-      </View>
+          </ScrollView>
+        </View>
       </ImageBackground>
     );
   }
@@ -115,7 +116,7 @@ class DropdownLanguage extends React.Component {
   render() {
     return (
       <View style={styles.dropdownLanguage}>
-        <Text style={{ width: 70,}}>{I18n.t('language')}: </Text>
+        <Text style={{ width: 70, }}>{I18n.t('language')}: </Text>
         <Picker
           mode="dropdown"
           iosHeader={''}
