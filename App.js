@@ -37,7 +37,7 @@ export default class App extends React.Component {
     // _storeData(USER_LANGUAGE,value);
   }
   render() {
-    const { languageSelected } = this.state;
+    // const { languageSelected } = this.state;
     return (
       <ImageBackground
         style={styles.backgroundImage}
@@ -47,7 +47,7 @@ export default class App extends React.Component {
           <View style={styles.container}>
 
             <DropdownLanguage
-              language={languageSelected}
+              language={this.state.languageSelected}
               onChangeLanguage={this.onChangeLanguage.bind(
                 this,
               )}></DropdownLanguage>
