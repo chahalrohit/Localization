@@ -45,14 +45,15 @@ export default class App extends React.Component {
       <View style={styles.container}>
         <ScrollView keyboardShouldPersistTaps="always">
           <View style={styles.container}>
+
             <DropdownLanguage
               language={languageSelected}
               onChangeLanguage={this.onChangeLanguage.bind(
                 this,
               )}></DropdownLanguage>
+
             <Text style={styles.helloText}>{I18n.t('hello')} </Text>
             <Text style={styles.text}>{I18n.t('sign_in_to_your_account')}</Text>
-
             <View style={styles.emailContainer}>
               <TextInput
                 style={styles.emailInput}
@@ -106,11 +107,11 @@ export default class App extends React.Component {
     );
   }
 }
+
 class DropdownLanguage extends React.Component {
   constructor(props) {
     super(props);
   }
-
   render() {
     return (
       <View style={styles.dropdownLanguage}>
@@ -135,6 +136,7 @@ class DropdownLanguage extends React.Component {
     );
   }
 }
+
 const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,

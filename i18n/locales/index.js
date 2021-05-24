@@ -1,10 +1,5 @@
 import * as RNLocalize from 'react-native-localize';
-//import I18n from 'i18n-js';
 import I18n from 'i18n-js';
-
-import memoize from 'lodash.memoize'; // Use for caching/memoize for better performance
-// import { I18nManager } from 'react-native';
-
 import en from './en';
 import da from './da';
 import hi from './hi';
@@ -15,7 +10,7 @@ if (Array.isArray(locales)) {
 }
 
 I18n.translations = {
-  default: en,
+  default: da,
   'en-US': en,
   en,
   da,
